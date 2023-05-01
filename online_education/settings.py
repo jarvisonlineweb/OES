@@ -138,7 +138,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'malaviyajinu@gmail.com'
+EMAIL_HOST_USER = 'demo@gmail.com'
 EMAIL_HOST_PASSWORD = 'cajuouyjvszybmyr'
 
 CART_SESSION_ID = 'cart'
@@ -147,5 +147,5 @@ CART_SESSION_ID = 'cart'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-PAYPAL_CLIENT_ID ='AbJ7CawZlWXOxw181FGToq2Q07_0D9OLvaABXfb0keGU1JBZ16Hnmsd3jDsiIwf5GHg9IgL1w86A5p7-'
-PAYPAL_CLIENT_SECRET ='EFa44vQP4vSOax92w7j1f9--9BMyYYGVvL7KNWYxH5dqh22VYWMor3zymVivtvNC2pRjLordfgMMt0gL'
+PAYPAL_CLIENT_ID ='demo'
+PAYPAL_CLIENT_SECRET ='demo code'
