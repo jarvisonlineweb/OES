@@ -1,0 +1,140 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-18.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Post Query</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="contact-form-section p-tb-100">
+<div class="container">
+<div class="contact-form-box">
+<div class="sub-section-title text-center">
+<h3 class="sub-section-title-heading">Post Query</h3>
+
+</div>
+    <script>alert('{{cid}}')
+alert('{{eid}}')
+</script>
+<form  method="POST" action="/client/client_contactus/" data-parsley-validate="">
+ {% csrf_token %}
+<div class="row">
+<!--	<div class="col-12 col-md-6 col-lg-6">-->
+<!--<div class="form-group mb-20">-->
+<!--<div class="input-group">-->
+<!--<div class="input-group-prepend">-->
+<!--<span class="input-group-text"><i class="flaticon-book"></i></span>-->
+<!--</div>-->
+<!-- <input type="text" name="course_id" id="course_id" class="form-control" placeholder="Course Id*" required data-error="Please enter your subject" />-->
+ <input type="hidden" value="{{cid}}" name="course_id" >
+	<input type="hidden" value="{{eid}}" name="expert_id" >
+<!--	<select class="form-control select2" name="course_id"-->
+<!--		 data-parsley-required="true" data-parsley-required-message="Please Select Course Name">-->
+<!--									{% for cou in course %}-->
+<!--                        				<option value="{{cou.course_id}}">{{cou.course_name}}</option>-->
+<!--									{% endfor %}-->
+<!--								  </select>-->
+</div>
+<!--<div class="help-block with-errors"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-12 col-md-6 col-lg-6">-->
+<!--<div class="form-group mb-20">-->
+<!--<div class="input-group">-->
+<!--<div class="input-group-prepend">-->
+<!--<span class="input-group-text"><i class="flaticon-envelope"></i></span>-->
+<!--</div>-->
+<!--<input type="text" name="expert_id" id="expert_id" value="" class="form-control" placeholder="Expert Id*" required data-error="Please enter your email" />-->
+<!--<select class="form-control select2" name="expert_id"-->
+<!--				data-parsley-required="true" data-parsley-required-message="Please Select Expert Name">-->
+<!--									{% for exp in expert %}-->
+<!--                        				<option value="{{exp.expert_id}}">{{exp.expert_name}}</option>-->
+<!--									{% endfor %}-->
+<!--								  </select>-->
+<!--</div>-->
+<!--<div class="help-block with-errors"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<div class="col-12 col-md-12 col-lg-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+<input  type="text" style="height:200px" name="query_description" id="query_description"  class="form-control" placeholder="Query Description*"
+		data-parsley-required="true" data-parsley-required-message="Please Enter Description" />
+</div>
+<div class="help-block with-errors"></div>
+</div>
+</div>
+
+
+<!-- <div class="col-12 col-md-6 col-lg-6">-->
+<!--<div class="form-group mb-20">-->
+<!--<div class="input-group">-->
+<!--<div class="input-group-prepend">-->
+<!--<span class="input-group-text"><i class="flaticon-book"></i></span>-->
+<!--</div>-->
+<!--<input type="date" name="query_date" id="query_date" class="form-control" placeholder="Query Date*"-->
+<!--		data-parsley-required="true" data-parsley-required-message="Please Select Date"/>-->
+<!--</div>-->
+<!--<div class="help-block with-errors"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+<div class="col-12 text-center">
+
+</div>
+<div class="col-12 col-md-12 col-lg-12 text-center">
+<button class="btn main-btn" type="submit">SEND A MESSAGE</button>
+<div id="msgSubmit"></div>
+<div class="clearfix"></div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<section class="contact-information-section pb-70">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-lg-30 pb-30">
+<div class="contact-information-item">
+<div class="section-title section-title-shapeless section-title-left text-start">
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+{% endblock %}

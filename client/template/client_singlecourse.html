@@ -1,0 +1,514 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="container">
+
+
+<div class="header-page-content desk-pad-right-30">
+
+ <h1>{{course.course_name}}  </h1>
+
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<section class="course-details-section pt-100 pb-70">
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-4 pb-30 order-lg-2">
+<div class="summery-details-item sidebar-to-header">
+<div class="summery-box">
+<div class="summery-iframe">
+<iframe src="https://www.youtube.com/embed/thjVvXl8vwI"></iframe>
+<!--    <iframe src="https://www.youtube.com/watch?v=7qWiLzxkJVU"></iframe>-->
+</div>
+<div class="summery-inner">
+<div class="summery-list">
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-equalizer"></i>Level</div>
+
+<div class="summery-option">{{course.course_level}}{{course.course_id.course_level}}</div>
+
+</div>
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-instructor"></i>Instructor</div>
+<div class="summery-option">{{course.expert_name}}{{course.expert_id.expert_name}}</div>
+</div>
+
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-reading-book-1"></i>Enrolled</div>
+<div class="summery-option">{{total}} Student</div>
+ </div>
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-key"></i>Access</div>
+<div class="summery-option">Lifetime</div>
+</div>
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-globe"></i>Language</div>
+
+<div class="summery-option">{{course.course_language}}{{course.course_id.course_language}}</div>
+
+</div>
+</div>
+
+<div class="summery-buttons">
+ <form action="/client/insert_cart/{{course.course_id}}" method="post">
+ {% csrf_token %}
+ <input type="hidden" value="{{course.course_fees}}" name="course_fees">
+ <input type="hidden" value="{{course.course_id}}" name="course_id">
+ <img src="{% static '/client_assets/images'%}{{course.course_image}}"  style="display:none">
+ <input type="hidden" value="{{course.course_name}}" name="course_name" >
+     {% if flag > 0 %}
+     <span style="color:red"> You already subscribe to this course </span>
+     {% else %}
+        <button type="submit" class="btn main-btn">ADD TO CART</button>
+     {% endif %}
+ </form>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-8 pb-30 order-lg-1">
+<div class="summery-details-item desk-pad-right-30">
+<ul class="product-tab-list">
+<li class="active" data-product-tab="1">Overview</li>
+<li data-product-tab="2">Curriculam</li>
+<li data-product-tab="3">Instructor</li>
+<li data-product-tab="4">Reviews</li>
+</ul>
+<div class="summery-info-details">
+<div class="summery-info-details-item summery-info-details-item-active" data-summery-info-details="1">
+<div class="summery-info-details-inner">
+<h3>Course Description</h3>
+ {{course.course_description}}
+
+</div>
+</div>
+
+
+<style>
+.accordion {
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+#fade {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+#light {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 600px;
+  max-height: 360px;
+  margin-left: -300px;
+  margin-top: -180px;
+  border: 2px solid #FFF;
+  background: #FFF;
+  z-index: 1002;
+  overflow: visible;
+}
+
+#boxclose {
+  float: right;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+.boxclose:before {
+  content: "×";
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+
+.test:hover ~ .test2 {
+  display: none;
+}
+</style>
+
+
+<div class="summery-info-details-item" data-summery-info-details="2">
+
+
+<div class="summery-info-details-inner">
+ {% for sub_mat in sub_mat1 %}
+<button class="accordion">{{sub_mat.topic}}</button>
+<!--    <h3><a href="{% static '/image/' %}{{sub_mat.topic}}" download="">{{sub_mat.topic}}</a></h3>-->
+<div class="panel">
+  <p>{{sub_mat.description}}</p>
+<!--    <p> <a href="{% static '/image/' %}{{sub_mat.topic}}" download="">Watch Now</a> </p> <br/>-->
+
+{% if flag >= 0 %}
+    {{sub_mat.topic}}
+   <div id="light">
+  <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+  <video id="VisaChipCardVideo" width="600" controls>
+      <source src="{% static '/image/' %}{{sub_mat.topic}}" type="video/mp4">
+      <!--Browser does not support <video> tag -->
+    </video>
+</div>
+{% elif flag <= 0 %}
+    <span style="color:red"> subscribe to Watch </span>
+    {% endif %}
+
+<div id="fade" onClick="lightbox_close();"></div>
+
+<div>
+  <a href="#" onclick="lightbox_open();">Watch video</a>
+</div>
+
+</div>
+
+
+ {% endfor %}
+</div>
+
+</div>
+
+<div class="summery-info-details-item" data-summery-info-details="3">
+<div class="summery-info-details-inner">
+<div class="summery-info-instructor">
+<div class="summery-info-instructor-thumb">
+    {% for exp in expert %}
+<img src="{% static 'client_assets/images/' %}{{exp.expert_id.expert_image}}">
+</div>
+<div class="summery-info-instructor-details">
+
+
+    <h3> Name : - {{exp.expert_id.expert_name}}</h3>
+    <h3> Qualification : - {{exp.expert_id.expert_qualification}}</h3>
+    <h3> Experience : - {{exp.expert_id.expert_experience}}</h3>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+<div class="summery-info-details-item" data-summery-info-details="4">
+<div class="summery-info-details-inner">
+<h1>Course Rating</h1>
+
+
+<div class="summery-review-progress">
+
+</div>
+
+<div class="summery-comment-area">
+<div class="summery-people-review">
+
+<div class="summery-people-review-item">
+
+<div class="summery-people-reply summery-people-review-main">
+
+
+<div class="summery-people-review-content">
+{% for feed in feedback %}
+<div class="summery-people-review-info">
+
+<h3 style="text-transform: capitalize;">{{feed.student_id.student_name}}</h3>
+    {{feed.feedback_date}}
+    {% if feed.rate == 1 %}
+  <div class="review-star">
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+                                                {% elif feed.rate == 2 %}
+                                                                                                        <div class="review-star">
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+
+                                                {% elif feed.rate == 3 %}
+                                                                                                        <div class="review-star">
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+
+                                                {% elif feed.rate == 4 %}
+                                                    <div class="review-star">
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+                                                {% else %}
+                                                    <div class="review-star">
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+                                                {% endif %}
+
+    <p>{{feed.feedback_description}}</p>
+
+<div class="summery-people-reply-action">
+
+
+</div>
+</div>
+<hr/>
+{% endfor %}
+
+</div>
+
+
+
+
+</div>
+
+
+
+<div class="product-review-area">
+<div class="sub-section-title">
+<h3 class="sub-section-title-heading">Add Your Comments</h3>
+
+</div>
+<form method="post" action="/client/client_insertfeedback/" data-parsley-validate="">
+ {% csrf_token %}
+
+<div class="form-review mb-20">
+<fieldset class="rating">
+
+</fieldset>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-envelope"></i></span>
+</div>
+<input type="hidden" name="course_id" value="{{course.course_id}}"/>
+
+<textarea name="feedback_description" class="form-control" id="message" rows="6" placeholder="Your Comment*"
+    data-parsley-required="true" data-parsley-required-message="Please Enter Feedback Description"></textarea>
+ </div>
+</div>
+</div>
+
+
+
+
+<h4 class="filter-lable-title">Star Rating</h4>
+<div class="radio">
+ <label>
+
+<div class="review-star">
+<input type="radio" name="rate" id="pg_type" value="5">&nbsp&nbsp
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+</label>
+  </div>
+
+
+
+<div class="radio">
+<label>
+<div class="review-star">
+<input type="radio" name="rate" id="pg_type" value="4">&nbsp&nbsp
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+ </label>
+    </div>
+
+
+ <div class="radio">
+  <label>
+ <div class="review-star">
+    <input type="radio" name="rate" id="pg_type" value="4">&nbsp&nbsp
+    <ul class="review-star-list">
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    </ul>
+ </div>
+  </label>
+ </div>
+
+  <div class="radio">
+  <label>
+      <div class="review-star">
+    <input type="radio" name="rate" id="pg_type" value="4">&nbsp&nbsp
+    <ul class="review-star-list">
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    </ul>
+ </div>
+
+  </label>
+  </div>
+
+
+   <div class="radio">
+  <label>
+      <div class="review-star">
+    <input type="radio" name="rate" id="pg_type" value="4">&nbsp&nbsp
+    <ul class="review-star-list">
+    <li class="full-star"><i class="bx bxs-star"></i></li>
+    </ul>
+ </div>
+
+  </label>
+  </div>
+
+
+{% if 'client_id' in request.session %}
+<div class="col-sm-12 col-md-12 col-lg-12">
+ <input type="submit"/>
+</div>
+{% endif %}
+</form>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    lightbox_close();
+  }
+}
+
+function lightbox_open() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  window.scrollTo(0, 0);
+  document.getElementById('light').style.display = 'block';
+  document.getElementById('fade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function lightbox_close() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  document.getElementById('light').style.display = 'none';
+  document.getElementById('fade').style.display = 'none';
+  lightBoxVideo.pause();
+}
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-bottom">
+<img src="{% static 'client_assets/images/shapes/shape-3.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Forgot Password</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+
+
+
+
+
+
+<div class="authentication-section pt-100 pb-70">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-md-6 pb-30">
+<div class="authentication-item">
+<h3>Forget Password</h3>
+<div class="authentication-form">
+<form method="POST" action="/client/client_ins_sendmail/" data-parsley-validate="">
+ {% csrf_token %}
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="text" name="email" class="form-control" required placeholder="Email*"
+  data-parsley-required="true" data-parsley-required-message="Please Enter Name">
+</div>
+</div>
+<div class="form-group mb-20">
+
+</div>
+<button class="btn main-btn full-width mb-20">SEND OTP </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="partner-section pb-100">
+</section>
+</div>
+</body>
+
+
+{% endblock %}

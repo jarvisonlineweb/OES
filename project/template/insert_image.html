@@ -1,0 +1,22 @@
+{% load static %}
+<form method="POST" action="/insert_image/" enctype="multipart/form-data" id="form_sample_1" class="form-horizontal" >
+    {% csrf_token %}
+
+
+    <img src="{% static 'image/' %}{{Course.course_image}}" height="200" width="200" name="output" id="output"/>
+    <br/>
+    <input type="file" name="course_image" id="course_image" accept="image/*"
+           onchange="loadFile(event)"/>
+
+    <script>
+         function loadFile(event){
+              document.getElementById('output').src=
+              URL.createObjectURL(event.target.files[0]);
+         }
+    </script>
+
+    <br/>
+    <input type="submit" value="submit">
+</form>
+
+

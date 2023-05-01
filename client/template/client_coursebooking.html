@@ -1,0 +1,152 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-14.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Course Booking</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="cart-section pt-100 pb-70">
+<div class="container">
+<div class="cart-section-inner">
+<div class="cart-section-item cart-section-contents"> 
+<div class="cart-table">
+<table class="table table-striped table-hover" id="tableExport" style="width:100%;">
+<thead>
+<tr>
+<th>Course Id</th>
+<th>Booking Date</th>
+ <th>Booking Status</th>
+<th>Amount</th>
+<th>Payment Status</th>
+    <th> QUERY </th>
+
+</thead>
+<tbody>
+
+{% for data in course_booking %}
+
+<td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+    <span><a href="/client/client_singlecourse/{{data.course_id_id}}">{{data.course_id.course_name}}</a></span>
+</div>
+</td>
+
+
+<td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{data.booking_date}}</span>
+</div>
+</td>
+
+
+<td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>
+ {% if data.booking_status == 0 %}
+    Pending
+ {% elif data.booking_status == 1 %}
+    Accept
+ {% else %}
+    Reject
+{% endif %}
+</span>
+</div>
+</td>
+
+
+<td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{data.amount}}  &nbsp; Rs</span>
+</div>
+</td>
+
+<td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>
+{% if data.booking_status == 1 and data.payment_status == 0 %}
+         <form action="/client/execute_payment/" method="post">
+{% csrf_token %}
+                        <input type="hidden" name="business" value="malaviyajinali99@gmail.com">
+
+                        <!-- Specify a Buy Now button. -->
+                        <input type="hidden" name="cmd" value="_xclick">
+
+                        <!-- Specify details about the item that buyers will purchase. -->
+                        <input type="hidden" name="item_name" value="{{request.session.client_id}}">
+                        <input type="hidden" name="amount" value="{{data.amount}}">
+                          <input type="hidden" name="currency_code" value="INR">
+
+                       <!-- Specify URLs -->
+                       <input type='hidden' name='C_id' value='{{data.course_booking_id}}'>
+
+                        <input type='hidden' name='return' value='http://127.0.0.1:8000/client/success/{{data.course_booking_id}}'>
+
+                        <!-- Display the payment button. -->
+                        <input type="image" name="submit" border="0"
+                        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+                        <img alt="" border="0" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+            </form>
+
+{% endif %}
+{% if data.booking_status == 1 and data.payment_status == 2  %}
+        Online Payment Complete
+{% endif %}
+</span>
+</div>
+</td>
+<td>
+
+    <a href="/client/client_contactus/{{data.course_id_id}}">ASK QUERY</a>
+
+</td>
+
+</tbody>
+ {% endfor %}
+
+</table>
+</div>
+
+
+<div class="cart-section-item cart-section-empty"> 
+<div class="cart-empty-content">
+<div class="cart-empty-image">
+<img src="{% static 'client_assets/images/shapes/cart.png' %}" alt="cart">
+</div>
+<div class="cart-empty-text">
+<h3><span>Sorry!!</span> Your Cart Is Currently Empty.</h3>
+<p>Get the most dedicated consultation for your life-changing course</p>
+<a href="products.html" class="btn main-btn">BACK TO SHOP</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{% endblock %}

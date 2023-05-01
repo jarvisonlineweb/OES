@@ -1,0 +1,17 @@
+{% load static %}
+
+{% for cou in course %}
+
+	<li value="{{course.course_id}}" class="nav-item">
+		<a href="products.html" class="nav-link">{{course.course_name}}</a>
+			<ul class="dropdown-menu">
+			<li class="nav-item">
+			<a href="/client/client_login/" class="nav-link">Login</a>
+			</li>
+			<li class="nav-item">
+			<a href="/client/client_forgotpass/" class="nav-link">Forgot Password</a>
+			</li>
+			</ul>
+	</li>
+
+{% endfor %}

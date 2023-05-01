@@ -1,0 +1,300 @@
+{% extends 'expert_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+								<div class="section-header-breadcrumb-content">
+									<h1>Dashboard</h1>
+								</div>
+							</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card card-sales-widget card-bg-blue-gradient">
+                <div class="card-icon shadow-primary bg-blue">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="card-wrap pull-right">
+                  <div class="card-header">
+                    <h3>{{expert}}</h3>
+                    <h4>Expert</h4>
+                  </div>
+                </div>
+                <div class="card-chart">
+                  <div id="chart-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card card-sales-widget card-bg-yellow-gradient">
+                <div class="card-icon shadow-primary bg-warning">
+                  <i class="fas fa-drafting-compass"></i>
+                </div>
+                <div class="card-wrap pull-right">
+                  <div class="card-header">
+                    <h3>{{query}}</h3>
+                    <h4>Query</h4>
+                  </div>
+                </div>
+                <div class="card-chart">
+                  <div id="chart-2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card card-sales-widget card-bg-orange-gradient">
+                <div class="card-icon shadow-primary bg-hibiscus">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="card-wrap pull-right">
+                  <div class="card-header">
+                    <h3>{{course}}</h3>
+                    <h4>Course</h4>
+                  </div>
+                </div>
+                <div class="card-chart">
+                  <div id="chart-3"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card card-sales-widget card-bg-green-gradient">
+                <div class="card-icon shadow-primary bg-green">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="card-wrap pull-right">
+                  <div class="card-header">
+                    <h3>{{sum}}</h3>
+                    <h4>Amount Paid</h4>
+                  </div>
+                </div>
+                <div class="card-chart">
+                  <div id="chart-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Total Booking</h4>
+                </div>
+                <div class="card-body">
+                  {% include 'base.html' %}
+
+							<script>
+								{% block jquery %}
+
+								var endpoint = '/api/chart/data/'
+								var defaultData = []
+								var labels = [];
+								$.ajax({
+									method: "GET",
+									url: endpoint,
+									success: function(data) {
+										labels = data.labels
+										defaultData = data.default
+										setChart()
+									},
+									error: function(error_data) {
+										console.log("error")
+										console.log(error_data)
+									}
+								})
+
+								function setChart() {
+									var ctx = document.getElementById("myChart");
+									var ctx2 = document.getElementById("myChart2");
+									var myChart = new Chart(ctx2, {
+										type: 'bar',
+										data: {
+											labels: labels,
+											datasets: [{
+
+												data: defaultData,
+												backgroundColor: [
+													'rgba(255, 99, 132, 0.2)',
+													'rgba(54, 162, 235, 0.2)',
+													'rgba(255, 206, 86, 0.2)',
+													'rgba(75, 192, 192, 0.2)',
+													'rgba(153, 102, 255, 0.2)',
+													'rgba(255, 159, 64, 0.2)'
+												],
+												borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)',
+													'rgba(153, 102, 255, 1)',
+													'rgba(255, 159, 64, 1)'
+												],
+												borderWidth: 1
+											}]
+										},
+										options: {
+											scales: {
+												yAxes: [{
+													ticks: {
+														beginAtZero: true
+													}
+												}]
+											}
+										}
+									});
+
+									var myChart = new Chart(ctx, {
+										type: 'polarArea',
+										data: {
+											labels: labels,
+											datasets: [{
+												label: '# of Votes',
+												data: defaultData,
+												backgroundColor: [
+													'rgba(255, 99, 132, 0.2)',
+													'rgba(54, 162, 235, 0.2)',
+													'rgba(255, 206, 86, 0.2)',
+													'rgba(75, 192, 192, 0.2)',
+													'rgba(153, 102, 255, 0.2)',
+													'rgba(255, 159, 64, 0.2)'
+												],
+												borderColor: [
+													'rgba(255,99,132,1)',
+													'rgba(54, 162, 235, 1)',
+													'rgba(255, 206, 86, 1)',
+													'rgba(75, 192, 192, 1)',
+													'rgba(153, 102, 255, 1)',
+													'rgba(255, 159, 64, 1)'
+												],
+												borderWidth: 1
+											}]
+										},
+										options: {
+											scales: {
+												yAxes: [{
+													ticks: {
+														beginAtZero: true
+													}
+												}]
+											}
+										}
+									});
+								}
+								// var ctx = document.getElementById("myChart");
+
+
+
+								{% endblock %}
+							</script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Course Booking</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                          <tr>
+
+
+                            <th>BOOKING_DATE</th>
+                            <th>STUDENT NAME</th>
+                             <th>COURSE NAME</th>
+                            <th>BOOKING STATUS</th>
+                            <th>PAYMENT STATUS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for cou_book in co %}
+                          <tr>
+
+                            <td>{{cou_book.booking_date}}</td>
+                            <td>{{cou_book.student_id.student_name}}</td>
+                            <td>{{cou_book.course_id.course_name}}</td>
+                             {% if cou_book.booking_status == 0 %}
+                            <td><a href="/accept_coubooking/{{cou_book.course_booking_id}}"><img src="{% static 'image/accept.jpg' %}" height="20"></a>
+                            <a href="/reject_coubooking/{{cou_book.course_booking_id}}"><img src="{% static 'image/reject.png' %}" height="20"></a>
+                            </td>
+
+
+
+                            {% elif cou_book.booking_status == 1 %}
+                                  <td>accept</td>
+                              {% else %}
+                                  <td>Reject</td>
+                            {% endif %}
+
+
+
+                            <td>  {% if cou_book.payment_status == 0 %}
+                                   Incomplate
+
+                                    {% else %}
+
+                                     Complate
+                              {% endif %}
+                            </td>
+                          </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+            <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+              </div>
+
+
+
+
+          </div>
+          </div>
+          </section>
+
+
+
+
+
+
+        <div class="footer-right">
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <script src="assets/bundles/chartjs/chart.min.js"></script>
+  <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/pa2.js"></script>
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <script src="assets/bundles/jquery.sparkline.min.js"></script>
+
+</body>
+{% endblock %}
+
+
+<!-- Mirrored from radixtouch.in/templates/snkthemes/grexsan/source/light/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Dec 2020 08:43:15 GMT -->
+</html>

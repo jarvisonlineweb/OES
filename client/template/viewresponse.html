@@ -1,0 +1,92 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-16.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>View Response</h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+
+</ol>
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="wishlist pt-100 pb-70">
+<div class="container">
+<div class="cart-section-inner">
+<div class="cart-section-item cart-section-contents mb-30">
+<div class="cart-table">
+<table>
+<thead>
+<tr>
+<th>QUERY DESCRIPTION</th>
+<th>STUDENT NAME</th>
+<th>EXPERT NAME</th>
+<th>QUERY RESPONSE</th>
+<th>COURSE NAME</th>
+ <th>QUERY DATE</th>
+
+</tr>
+</thead>
+<tbody>
+{% for x in query %}
+<tr>
+<td>{{x.query_description}}</td>
+<td>
+<div class="product-table-info">
+
+<span>{{x.student_id.student_name}}</span>
+
+</div>
+</td>
+<td class="weight-500">{{x.expert_id.expert_name}}</td>
+<td>{{x.query_response}}</td>
+<td>{{x.course_id.course_name}}</td>
+ <td>{{x.query_date}}</td>
+</tr>
+<tr>
+<!--<td class="cancel"><a href="#"><i class="flaticon-cross-sign"></i></a></td>-->
+<!--<td>-->
+<!--<div class="product-table-info">-->
+
+<!--<span></span>-->
+<!--</div>-->
+<!--</td>-->
+<!--<td class="weight-500"></td>-->
+<!--<td>$24.00</td>-->
+<!-- <td><a href="cart.html" class="btn main-btn">ADD TO CART <i class="flaticon-shopping-cart"></i></a></td>-->
+<!--</tr>-->
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+<div class="cart-section-item cart-section-empty">
+<div class="cart-empty-content">
+<div class="cart-empty-image">
+<img src="{% static 'client_assets/images/shapes/cart.png' %}" alt="cart">
+</div>
+<div class="cart-empty-text">
+<h3><span>Sorry!!</span> Your Cart Is Currently Empty.</h3>
+<p>Get the most dedicated consultation for your life-changing course</p>
+<a href="products.html" class="btn main-btn">BACK TO SHOP</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}
+
+

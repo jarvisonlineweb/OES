@@ -1,0 +1,82 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-21.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Forget Password</h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Forget Password</li>
+</ol>
+</nav>
+</div>
+</div>
+</header>
+
+
+<div class="authentication-section pt-100 pb-70">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-md-6 pb-30">
+<div class="authentication-item">
+<h3>Forget Password</h3>
+<div class="authentication-form">
+<form method="POST" action="/client/client_ins_reset_pass/" data-parsley-validate="">
+ {% csrf_token %}
+<div class="form-group mb-20">
+<div class="input-group">
+<input  id="client_otp" type="text" name="client_otp" class="form-control" required placeholder="OTP"
+        data-parsley-required="true" data-parsley-required-message="Please Enter OTP">
+</div>
+
+
+ <div class="input-group">
+<input  id="client_npass" type="text" name="client_npass" class="form-control" required placeholder="New Password*"
+            data-parsley-required="true" data-parsley-required-message="Please Enter New Password">
+</div>
+
+
+
+
+
+ <div class="input-group">
+<input  id="client_cpass" type="text" name="client_cpass" class="form-control" required placeholder="Confirm Password*"
+                data-parsley-required="true" data-parsley-required-message="Please Enter Confirm Password">
+</div>
+
+
+
+  {% for message in messages %}
+			<span style="color:red">{{ message }}</span>
+		          {% endfor %}
+
+
+
+
+</div>
+<div class="form-group mb-20">
+
+</div>
+<button class="btn main-btn full-width mb-20">SUBMIT</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="partner-section pb-100">
+</section>
+</body>
+
+{% endblock %}

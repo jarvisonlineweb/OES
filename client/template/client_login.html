@@ -1,0 +1,135 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-bottom">
+<img src="{% static 'client_assets/images/shapes/shape-3.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Login/Registration</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+
+
+
+
+
+<div class="authentication-section pt-100 pb-70">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-6 col-md-6 pb-6">
+<div class="authentication-item">
+<h3>Register</h3>
+<div class="authentication-form">
+<form method="POST" action="/client/client_registration/" data-parsley-validate="">
+    {% csrf_token %}
+    <input type="hidden" name="is_admin" value="0">
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="text" name="student_name" class="form-control" required placeholder="Username*"
+        data-parsley-required="true" data-parsley-required-message="Please Enter Name">
+</div>
+</div>
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="text" name="student_email" class="form-control" required placeholder="Email*"
+            data-parsley-required="true" data-parsley-required-message="Please Enter Email">
+   </div>
+</div>
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="password" name="student_password" class="form-control" required placeholder="Password*" data-parsley-pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}"
+            data-parsley-required="true" data-parsley-required-message="Please Enter Password">
+
+</div>
+</div>
+        <span style="color:gray"> At least 8 characters
+at least 1 numeric character , 1 lowercase letter , 1 uppercase letter , 1 special character </span>
+   <br/>
+    <div class="form-group mb-20">
+<div class="input-group">
+<input type="text" name="student_contact" class="form-control" required placeholder="Contact*"
+            data-parsley-required="true" data-parsley-required-message="Please Enter Contact"
+            minlength="10" maxlength="10">
+</div>
+</div>
+
+<input type="date" name="registered_date" class="form-control" required placeholder="Registered date*"
+      value="{{date}}"  style="display:none"     data-parsley-required="true" data-parsley-required-message="Please Select Date">
+
+<button class="btn main-btn full-width mb-20" type="submit">REGISTER NOW</button>
+<div class="authentication-account-access">
+ <div class="authentication-account-access-item">
+<div class="input-checkbox">
+<input type="checkbox" id="check2">
+
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-6 col-md-6 pb-6">
+<div class="authentication-item">
+<h3>Login</h3>
+<div class="authentication-form">
+<form ation="/client_login/" method="POST" data-parsley-validate="">
+    {% csrf_token %}
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="text" value="{{client_email_cookie1}}" name="client_user" class="form-control" placeholder="Username/Email Address*"
+            data-parsley-required="true" data-parsley-required-message="Please Enter Student Email">
+</div>
+</div>
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="password" value="{{client_password_cookie2}}" name="client_password" class="form-control" required placeholder="Password*"
+        data-parsley-required="true" data-parsley-required-message="Please Enter Student Password">
+</div>
+</div>
+
+<div class="authentication-account-access mb-20">
+<div class="authentication-account-access-item">
+<div class="input-checkbox">
+<input type="checkbox"  name="remember" id="remember-me" >
+<label for="remember-me">Remember Me!</label>
+</div>
+</div>
+<div class="authentication-account-access-item">
+<div class="authentication-link">
+<a href="/client/client_forgotpass/">Forget password?</a>
+</div>
+</div>
+</div>
+<button class="btn main-btn full-width">LOG IN</button>
+    <span style="color:red">
+                      {% for data in messages %}
+                          {{ data }}
+                      {% endfor %}
+                  </span>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</body>
+
+
+<!-- Mirrored from templates.hibootstrap.com/jexi/default/authentication.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 02:51:06 GMT -->
+</html>
+{% endblock %}

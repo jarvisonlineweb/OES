@@ -1,0 +1,190 @@
+{% extends 'client_header_footer.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-14.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Carts</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="cart-section pt-100 pb-70">
+<div class="container">
+<div class="cart-section-inner">
+<div class="cart-section-item cart-section-contents">
+<div class="cart-table">
+<table>
+<thead>
+<tr>
+
+
+
+ <th>COURSE_IMAGE</th>
+ <th>COURSE_NAME</th>
+  <th>COURSE_PRICE</th>
+ <th>Action</th>
+
+
+
+</tr>
+</thead>
+<tbody>
+{% if 'client_id' in request.session %}
+ {% for data in item %}
+
+<tr>
+ <td>
+<div class="product-table-info">
+
+<img style="width: 50%; height: 50%;" src="{% static '/client_assets/images/'%}{{data.course_id.course_image}}" >
+</div>
+</td>
+
+
+
+ <td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{data.course_id.course_name}}</span>
+</div>
+</td>
+
+ <td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{data.course_id.course_fees}}  &nbsp; Rs</span>
+</div>
+</td>
+
+
+
+
+
+
+
+
+
+  <td>
+ <a href="/client/delete_cart/{{data.cart_id}}"><img src="{% static 'image/delete.png' %}" class="col-sm-7 col-md-2 col-lg-2"></a>
+
+</td>
+
+</tr>
+
+  {% endfor %}
+
+{% else %}
+
+ {% for key,value in request.session.cart.items %}
+
+<tr>
+ <td>
+<div class="product-table-info">
+
+<img style="width: 50%; height: 50%;" src="{% static '/client_assets/images/'%}{{value.image}}" >
+</div>
+</td>
+
+
+
+ <td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{value.name}}</span>
+</div>
+</td>
+
+ <td>
+<div class="product-table-info">
+<div class="product-table-thumb">
+</div>
+<span>{{value.price}}  &nbsp; Rs</span>
+</div>
+</td>
+
+
+
+
+
+
+
+
+
+  <td>
+ <a href="/client/delete_cart/{{value.id}}"><img src="{% static 'image/delete.png' %}" class="col-sm-7 col-md-2 col-lg-2"></a>
+
+</td>
+
+</tr>
+
+  {% endfor %}
+{% endif %}
+</tbody>
+</table>
+</div>
+<div class="row justify-content-between align-items-center mt-30">
+<div class="col-sm-12 col-md-4 col-lg-3">
+
+</div>
+<div class="col-sm-12 col-md-7 col-lg-5">
+<div class="cart-coupon cart-info-item">
+<div class="cart-update cart-info-item">
+<a href="/client/clear_cart/" class="btn main-btn full-width">
+CLEAR CART
+</a>
+</div></div>
+</div>
+</div>
+<div class="row align-items-center">
+<div class="col-sm-12 col-md-6 col-lg-6 pb-30">
+<div class="cart-image">
+<img src="{% static 'client_assets/images/shapes/cart.png' %}" alt="cart">
+</div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-6 pb-30">
+<div class="cart-details default-box-shadow">
+<div class="cart-total-box">
+
+
+<div class="cart-total-item">
+<h4>Total</h4>
+<p>{{total}} &nbsp; Rs</p>
+</div>
+</div>
+<a href="/client/client_checkout/" class="btn main-btn">CheckOut</a>
+</div>
+</div>
+</div>
+</div>
+<div class="cart-section-item cart-section-empty">
+<div class="cart-empty-content">
+<div class="cart-empty-image">
+<img src="{% static 'client_assets/images/shapes/cart.png' %}" alt="cart">
+</div>
+<div class="cart-empty-text">
+<h3><span>Sorry!!</span> Your Cart Is Currently Empty.</h3>
+<p>Get the most dedicated consultation for your life-changing course</p>
+<a href="products.html" class="btn main-btn">BACK TO SHOP</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{% endblock %}

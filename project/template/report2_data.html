@@ -1,0 +1,42 @@
+{% for cou_book in course_booking %}
+                          <tr>
+
+                            <td>{{cou_book.student_id.student_name}}</td>
+                            <td>{{cou_book.course_id.course_name}}</td>
+                            <td>{{cou_book.booking_date}}</td>
+
+                            {% if cou_book.booking_status == 0 %}
+                                    <td>pending</td>
+
+                            {% elif cou_book.booking_status == 1 %}
+                                  <td>accept</td>
+                              {% else %}
+                                  <td>Reject</td>
+                            {% endif %}
+
+
+
+
+
+                            <td>{{cou_book.amount}} Rs </td>
+
+                            <td>  {% if cou_book.payment_status == 0 %}
+                                   Incomplate
+
+                                    {% else %}
+
+                                     Complate
+                              {% endif %}
+                            </td>
+                            <td>{{cou_book.status}}</td>
+
+
+                          </tr>
+
+
+
+
+
+
+
+                            {% endfor %}

@@ -1,0 +1,19 @@
+{% load static %}
+
+{% for str in stream %}
+
+	<li value="{{str.stream_id}}" class="nav-item">
+		<a href="products.html" class="nav-link dropdown-toggle">{{str.stream_type}}</a>
+		<ul class="dropdown-menu">
+			{% for data in s %}
+				{% if str.stream_id == data.stream_id_id %}
+			<li value="{{data.subject_id}}" class="nav-item">
+			<a href="/client/client_course/{{data.subject_id}}" >{{data.subject_name}}</a>
+			</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+	</li>
+
+{% endfor %}

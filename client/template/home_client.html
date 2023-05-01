@@ -1,0 +1,373 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+<header>
+<!--<div id="rev_slider_26_1_wrapper" class="rev_slider_wrapper fullscreen-container header-revolution" data-alias="mask-showcase" data-source="gallery" style="background:#aaaaaa;padding:0px;">-->
+
+<!--<div id="rev_slider_26_1" class="rev_slider fullscreenbanner tiny_bullet_slider" style="display:none;" data-version="5.4.1">-->
+<ul>
+
+<li data-index="rs-1" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="2000" data-thumb="http://works.themepunch.com/revolution_5_3/wp-content/" data-rotate="0" data-saveperformance="off" data-title="Slide">
+
+<img src="{% static 'client_assets/images/main2.jpeg' %}" style='background:linear-gradient(90deg, rgba(134,143,150,1) 0%, rgba(89,97,100,1) 100%)' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina data-bgparallax="10" width="10000px">
+
+
+<div class="tp-caption header-overlay tp-shape tp-shapewrapper" id="slide-1-layer-1" data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']" data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" data-width="['1200']" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="on" data-responsive="off" data-frames='[{"from":"opacity:0;","speed":1500,"to":"o:1;","delay":750,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"ease":"nothing"}]' data-textAlign="['left','left','left','left']" >
+</div>
+
+
+
+</li>
+
+
+</ul>
+</div>
+</div>
+
+</header>
+
+
+<div class="about-section bg-off-white pt-100 pb-70 position-relative overflow-hidden">
+<div class="background-shapes">
+<div class="background-shape-item">
+<img src="{% static 'client_assets/images/shapes/curved-line.png' %}" alt="line">
+</div>
+<div class="background-shape-item">
+<img src="{% static 'client_assets/images/shapes/half-circle-shape.png' %}" alt="line">
+</div>
+</div>
+<div class="animate-shapes">
+<div class="animate-shape animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/animate-shape-1.png' %}" alt="shape">
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="about-item-card">
+<img src="{% static 'client_assets/images/shapes/about-grid-icon.png' %}" class="about-card-image" alt="icon">
+<div class="about-card-icon">
+<i class="flaticon-book-of-black-cover-closed"></i>
+<i class="flaticon-mortarboard"></i>
+</div>
+<div class="about-card-text">
+<h3><span class="counter">{{expert}}</span></h3>
+<h4>Expert</h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="about-item-card">
+<img src="{% static 'client_assets/images/shapes/about-grid-icon.png' %}" class="about-card-image" alt="icon">
+<div class="about-card-icon">
+<i class="flaticon-laptop"></i>
+<i class="flaticon-web"></i>
+</div>
+<div class="about-card-text">
+<h3><span class="counter">{{query}}</span></h3>
+<h4>Query</h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="about-item-card">
+<img src="{% static 'client_assets/images/shapes/about-grid-icon.png' %}" class="about-card-image" alt="icon">
+<div class="about-card-icon">
+<i class="flaticon-pencil"></i>
+<i class="flaticon-agenda"></i>
+</div>
+<div class="about-card-text">
+<h3><span class="counter">{{courses.count}}</span></h3>
+<h4>Course</h4>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="about-item-card">
+<img src="{% static 'client_assets/images/shapes/about-grid-icon.png' %}" class="about-card-image" alt="icon">
+<div class="about-card-icon">
+<i class="flaticon-monitor"></i>
+<i class="flaticon-address-book"></i>
+</div>
+<div class="about-card-text">
+<h3><span class="counter">{{feedbacks.count}}</span></h3>
+<h4>Feedback</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<section class="about-section pt-100 pb-70">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-lg-5 pb-30">
+<div class="section-title section-title-left text-start">
+<h2>About <span>Online</span> Education</h2>
+<p>Online learning is education that takes place over the Internet. It is often referred to as “e- learning” among other terms. However, online learning is just one type of “distance learning” - the umbrella term for any learning that takes place across distance and not in a traditional classroom.</p>
+</div>
+<div class="faq-accordion">
+
+<div class="faq-accordion-item faq-accordion-item-bgless faq-accordion-item-active">
+<div class="faq-accordion-header">
+<h3 class="faq-accordion-title">Improving Online Education by Skill</h3>
+</div>
+<div class="faq-accordion-body">
+<div class="faq-accordion-body-inner">
+<p>Develop a time-management strategy.Make the most of online discussions</p>
+</div>
+</div>
+</div>
+<div class="faq-accordion-item faq-accordion-item-bgless">
+<div class="faq-accordion-header">
+<h3 class="faq-accordion-title">Superior to Your Fellow Man True Nobility is</h3>
+</div>
+<div class="faq-accordion-body">
+<div class="faq-accordion-body-inner">
+<p>There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self.</p>
+</div>
+</div>
+</div>
+ <div class="faq-accordion-item faq-accordion-item-bgless">
+<div class="faq-accordion-header">
+<h3 class="faq-accordion-title">Commitment to Satisfaction in Education</h3>
+</div>
+<div class="faq-accordion-body">
+<div class="faq-accordion-body-inner">
+<p>Committed teachers always put their students' wants, needs, and interests first.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 offset-lg-1 pb-30">
+<div class="about-image-content">
+<div class="about-bg-shapes">
+<div class="about-bg-shape-item">
+<img src="{% static 'client_assets/images/shapes/vertical-zigzag-line.png' %}" alt="shape">
+</div>
+</div>
+<div class="about-shape-items">
+<div class="about-shape-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/square-dotted-shape.png' %}" alt="shape">
+</div>
+</div>
+<div class="about-image-text">
+<div class="about-text-state">1</div>
+<p><span>Years</span> of Experience " in Online Education!</p>
+</div>
+<div class="about-image-grid">
+<div class="about-image-item">
+<img src="{% static 'client_assets/images/about-image-1.jpg' %}" alt="about">
+</div>
+<div class="about-image-item">
+<img src="{% static 'client_assets/images/about-image-2.jpg' %}" alt="about">
+</div>
+<div class="about-image-item">
+<img src="{% static 'client_assets/images/about-image-3.jpg' %}" alt="about">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="course-section p-tb-100 position-relative bg-off-white">
+<div class="course-animation-items">
+<div class="course-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/curve-lines-shape.png' %}" alt="shape">
+</div>
+<div class="course-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/cloud-shape.png' %}" alt="shape">
+</div>
+</div>
+<div class="container">
+<div class="section-title">
+<h2>Our Latest <span>Courses</span></h2>
+</div>
+<div class="row">
+     {% for cou in courses %}
+<div class="col-12 col-md-6 col-lg-4 pb-13">
+<div class="course-card course-card-offwhite">
+<div class="course-card-thumb">
+<a href="/client/client_singlecourse/{{cou.course_id}}"><img style="width:100%; height:300px;"  src="{% static 'client_assets/images/' %}{{cou.course_image}}"  alt="course"></a>
+</div>
+<div class="course-card-content" style="width:100%; height:120px;">
+
+<h3><a href="/client/client_singlecourse/{{cou.course_id}}">
+ {{cou.course_name}}
+</a></h3>
+    <h4 class="course-price">Rs. {{cou.course_fees}}</h4>
+</div>
+
+</div>
+</div>
+ {% endfor %}
+</div>
+</div>
+</section>
+
+
+<section class="help-section pt-100 pb-70">
+<div class="container">
+<div class="section-title">
+<h2>How Can We <span>Help</span> You</h2>
+</div>
+<div class="row">
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="help-card help-card-center">
+<div class="help-card-thumb">
+<i class="flaticon-resume"></i>
+</div>
+<div class="help-card-content">
+<h3>Improve Your Technical Skills</h3>
+<p>New skills can include the ability to use new software suites, perform in-depth research online, and communicate effectively online in various formats such as discussion boards and teleconferencing.</p>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+ <div class="help-card help-card-center">
+<div class="help-card-thumb">
+<i class="flaticon-satisfaction"></i>
+</div>
+<div class="help-card-content">
+<h3>Commitment Satisfaction</h3>
+<p>satisfaction in online learning: students are more satisfied with well-designed online courses that have clear goals and are easy to navigate. to communicate and have discussions with their classmates report greater satisfaction with their online learning experiences</p>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="help-card help-card-center">
+<div class="help-card-thumb">
+<i class="flaticon-instructions"></i>
+</div>
+<div class="help-card-content">
+<h3>Specific Instructions​</h3>
+<p>Online instruction is an educational model where students and instructors connect via technology to review lectures, submit assignments and communicate with one another. No face-to-face learning occurs since lectures, assignments and readings are delivered online.</p>
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-lg-3 pb-30">
+<div class="help-card help-card-center">
+<div class="help-card-thumb">
+<i class="flaticon-learn"></i>
+</div>
+<div class="help-card-content">
+<h3>Lifelong Learning​​</h3>
+<p>Lifelong learning is a form of self-initiated education that is focused on personal development. While there is no standardized definition of lifelong learning, it has generally been taken to refer to the learning that occurs outside of a formal educational institute, such as a school, university or corporate training.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="video-section pb-100 overflow-hidden">
+<div class="container">
+<div class="video-bg pt-100 bg-off-white">
+<div class="video-bg-shapes">
+<div class="video-bg-shape-item">
+<img src="{% static 'client_assets/images/shapes/line-area-shape.png' %}" alt="shape">
+</div>
+</div>
+<div class="video-animation-items">
+<div class="video-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/circle-dot-shape.png' %}" alt="shape">
+</div>
+<div class="video-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/curve-lines-shape.png' %}" alt="shape">
+</div>
+</div>
+<div class="section-title">
+<h2>Watch <span>The Video</span></h2>
+</div>
+</div>
+<div class="video-content">
+<img src="{% static 'client_assets/images/videos-bg/video-image-1.jpg' %}" alt="vide">
+<div class="video-button">
+<a href="https://www.youtube.com/watch?v=BRvyWfuxGuU" id="video-popup"><i class="flaticon-play-button"></i></a>
+</div>
+<div class="content-animation-shapes">
+<div class="content-animation-shape animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/combined-circle-shape.png' %}" alt="shape">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="testimonial-section p-tb-100 bg-off-white position-relative">
+<div class="double-bg-shape-items">
+<div class="double-bg-shape-item">
+<img src="{% static 'client_assets/images/shapes/bg-line-area-shape.png' %}" alt="shape">
+ </div>
+<div class="double-bg-shape-item">
+<img src="{% static 'client_assets/images/shapes/circle-shape.png' %}" alt="shape">
+</div>
+</div>
+<div class="client-fixed-images">
+
+
+</div>
+<div class="testimonial-animation-items">
+<div class="testimonial-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/triangle-shape.png' %}" alt="shape">
+</div>
+<div class="testimonial-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/square-ring-shape.png' %}" alt="shape">
+</div>
+<div class="testimonial-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/curved-line-black.png' %}" alt="shape">
+</div>
+<div class="testimonial-animation-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/combined-circle-shape-2.png' %}" alt="shape">
+</div>
+</div>
+<div class="container">
+<div class="section-title">
+<h2>What People Say <span>About Us</span></h2>
+</div>
+
+<div class="testimonial-carousel swiper-container">
+<div class="swiper-wrapper">
+{% for feed in  feedbacks %}
+<div class="testimonial-carousel-item swiper-slide">
+<div class="testimonial-carousel-content">
+
+<h3 class="testimonial-client-name">{{feed.student_id.student_name}} </h3>
+<p class="testimonial-client-feedback">{{feed.feedback_description}} </p>
+</div>
+</div>
+
+{% endfor %}
+
+<div class="testimonial-carousel-item swiper-slide">
+</div>
+</div>
+
+
+<div class="swiper-carousel-control">
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

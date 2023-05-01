@@ -1,0 +1,92 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+<section class="event-details-section pt-100 pb-70">
+<div class="container">
+<div class="row">
+
+
+
+
+
+
+    <div class="row">
+<div class="col-sm-3 col-md-3 col-lg-3">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+    <input type="text" name="student_name" value="{{user.student_name}}" class="form-control" required placeholder="Name*">
+</div>
+</div>
+</div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+    <input type="text" name="student_contact" value="{{user.student_contact}}" class="form-control" required placeholder="Contact*">
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-100 col-lg-100 pb-100 order-lg-2">
+<div class="summery-details-item">
+<div class="summery-box">
+<div class="summery-inner">
+<div class="summery-list">
+
+<div class="summery-list-item">
+<div class="summery-label"><i class="flaticon-online-learning-1"></i>Course Name</div>
+<div class="summery-option">Fees</div>
+</div>
+
+     {% for c in course %}
+<div class="summery-list-item">
+<div class="summery-label">{{c.course_id.course_name}}</div>
+<div class="summery-option">{{c.course_id.course_fees}}</div>
+</div>
+    {% endfor %}
+    <div class="summery-list-item">
+<div class="summery-label">Total</div>
+<div class="summery-option">{{total}}</div>
+</div>
+
+
+    <a href="/client/client_coubook/" class="btn main-btn width" >CONTINUE</a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}

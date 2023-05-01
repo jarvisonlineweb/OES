@@ -1,0 +1,201 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-15.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Courses</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="course-section pt-100 pb-70">
+<div class="container">
+<div class="product-list-header">
+<div class="product-list-header-item">
+<div class="product-list-result">
+
+</div>
+</div>
+<!--<div class="product-list-header-item">-->
+<!--<div class="product-list-action">-->
+<!--<div class="product-list-form">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+</div>
+
+<div class="row">
+  {% for cou in course %}
+<div class="col-12 col-md-6 col-lg-4 pb-30">
+<div class="course-card">
+<div class="course-card-thumb">
+<a href="/client/client_singlecourse/{{cou.course_id}}"><img style="width:100%; height:300px;" src="{% static 'client_assets/images/' %}{{cou.course_image}}" alt="course"></a>
+</div>
+<div class="course-card-content bg-off-white" style="width:100%; height:200px;">
+
+
+<h3><a href="/client/client_singlecourse/{{cou.course_id}}">
+ {{cou.course_name}}
+</a></h3>
+{% for x in rate %}
+
+                                                {% if cou.course_id == x.feedback_id %}
+
+    {% if x.AVG == 5.0000 %}
+                                                    <div class="review-star">
+
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+</ul>
+</div>
+                                                {% elif x.AVG == 4.0000 %}
+                                                    <div class="review-star">
+
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+                                                {% elif x.AVG == 3.0000 %}
+                                                   <div class="review-star">
+
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+                                                {% elif x.AVG == 2.0000 %}
+                                                   <div class="review-star">
+
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+                                                {% elif x.AVG == 1.0000 %}
+                                                    <div class="review-star">
+
+<ul class="review-star-list">
+<li class="full-star"><i class="bx bxs-star"></i></li>
+
+</ul>
+</div>
+                                                {% endif %}
+                                                {% endif %}
+    {% endfor %}
+
+ <h4 class="course-price">Rs. {{cou.course_fees}}</h4>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+ {% endfor %}
+
+
+<!--    <div class="navbar-option-item navbar-option-authentication">-->
+<!-- {% for cou in course %}-->
+<!--<a href="/client/client_singlecourse/{{cou.course_id}}" class="btn main-btn text-nowrap">View Course</a>-->
+<!-- {% endfor %}-->
+<!--</div>-->
+
+
+
+
+<nav aria-label="Page navigation example" class="page-pagination">
+<!--<ul class="pagination">-->
+<!--<li class="page-item disabled"><a class="page-link" href="#"><i class="flaticon-left-arrow-1"></i></a></li>-->
+<!--<li class="page-item active">-->
+<!--<a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>-->
+<!--</li>-->
+<!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--<li class="page-item"><a class="page-link" href="#"><i class="flaticon-right-arrow"></i></a></li>-->
+<!--</ul>-->
+<style>
+    <style>
+.pagination {
+  display: inline-block;
+}
+
+.pagination li {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination li.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination li:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+</style>
+
+    {% if course.has_other_pages %}
+  <ul class="pagination">
+    {% if course.has_previous %}
+      <li ><a href="?page={{ course.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in course.paginator.page_range %}
+      {% if course.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if course.has_next %}
+      <li><a href="?page={{ course.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</nav>
+</div>
+</div>
+</section>
+
+
+<section class="partner-section pb-100">
+
+</section>
+
+
+
+
+{% endblock %}

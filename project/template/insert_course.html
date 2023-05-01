@@ -1,0 +1,149 @@
+{% extends 'header_footer.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+						<div class="row">
+							<div class="col-xl-6 col-lg-col-md-6 col-sm-12">
+								<div class="section-header-breadcrumb-content">
+									<h1>Course Table</h1>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+          <div class="section-body">
+            <div class="row">
+
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Course Table</h4>
+                  </div>
+
+
+
+                  <form method="post" action="/insert_course/" enctype="multipart/form-data" data-parsley-validate="">
+                  {% csrf_token %}
+
+					 <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped table-hover" id="" style="width:100%;" >
+                        <thead>
+                          <tr>
+						  <tr>
+                            <th>COURSE NAME</th>
+							  <td style="color:red;"><input class="form-control select2" required type="text"
+										  name="course_name"
+							  	data-parsley-required="true" data-parsley-required-message="Please Enter Course Name"></td>
+						  </tr>
+						  <tr>
+                            <th>COURSE IMAGE</th>
+							  <td style="color:red;"><input class="form-control select2" required type="file" name="course_image"
+										 id="course_image" accept="image/*" class="form-control input-height"
+										 onchange="loadFile(event)"  data-parsley-required="true" data-parsley-required-message="Please Select Image"/></td>
+						  </tr>
+						  <tr>
+                            <th>COURSE DESCRIPTION</th>
+							  <td style="color:red;"><input  class="form-control select2" required type="text" name="course_description"
+							  	data-parsley-required="true" data-parsley-required-message="Please Enter Description"></td>
+						  </tr>
+						  <tr>
+                            <th>COURSE DURATION</th>
+							  <td style="color:red;"><input class="form-control select2" required type="text" name="course_duration"
+							  	data-parsley-required="true" data-parsley-required-message="Please Enter Duration"></td>
+						  </tr>
+                          <tr>
+                            <th>COURSE FEES</th>
+							  <td style="color:red;"><input class="form-control select2" required type="text" name="course_fees" data-parsley-type="digits"
+							  data-parsley-required="true" data-parsley-required-message="Please Enter Fees"></td>
+						  </tr>
+                          <tr>
+                            <th>COURSE CONTENT</th>
+							  <td style="color:red;"><input class="form-control select2" required type="text" name="course_content"
+							  data-parsley-required="true" data-parsley-required-message="Please Enter Content"></td>
+						  </tr>
+
+						  <tr>
+                            <th>COURSE LEVEL</th>
+							  <td style="color:red;">
+								  <select class="form-control select2" name="course_level">
+                        				<option value="Beginner">Beginner</option>
+									  	<option value="Intermediate">Intermediate</option>
+									  	<option value="Expert">Expert</option>
+
+								  </select>
+							  </td>
+						  </tr>
+
+						  <tr>
+                            <th>COURSE LANGUAGE</th>
+							  <td style="color:red;">
+								  <select class="form-control select2" name="course_language">
+                        				<option value="English">English</option>
+									  	<option value="Hindi">Hindi</option>
+									  	<option value="Gujarati">Gujarati</option>
+
+								  </select>
+							  </td>
+						  </tr>
+
+						  <tr>
+                            <th>SUBJECT ID</th>
+							  <td style="color:red;">
+								  <select class="form-control select2" name="subject_id" >
+									{% for data in subjects %}
+                        				<option value="{{data.subject_id}}">{{data.subject_name}}</option>
+									{% endfor %}
+								  </select>
+							  </td>
+						  </tr>
+                          <tr>
+                            <th>EXPERT ID</th>
+							  <td style="color:red;">
+								  <select class="form-control select2" name="expert_id">
+									{% for data in expert %}
+                        				<option value="{{data.expert_id}}">{{data.expert_name}}</option>
+									{% endfor %}
+								  </select>
+							  </td>
+						  </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="card-footer text-right">
+                      <button class="btn btn-primary" value="submit">Submit</button>
+                    </div>
+					   </form>
+
+
+
+
+
+
+                  </div>
+                </div>
+              </div>
+		  </div>
+		</section>
+	  </div>
+
+{% endblock %}

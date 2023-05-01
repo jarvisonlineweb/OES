@@ -1,0 +1,101 @@
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-top">
+<img src="{% static 'client_assets/images/shapes/circle-dot-shape.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Expert Details</h1>
+<nav aria-label="breadcrumb">
+</nav>
+</div>
+</div>
+</header>
+
+
+<div class="profile-section pt-100 pb-70">
+<div class="container-fluid">
+<div class="row align-items-center">
+
+<div class="col-12 col-lg-6 pb-30">
+<div class="profile-content-item max-585 desk-pad-right-20 desk-ml-auto">
+<div class="profile-desc">
+
+
+ <h2> Name :- {{expert.expert_name}}</h2>
+<h2>  Qualification :- {{expert.expert_qualification}}</h2>
+ <h2> Specialization :- {{expert.expert_experience}}</h2><br><br>
+
+<div class="navbar-option-item navbar-option-authentication">
+
+<a href="/client/instructor_course/{{expert.expert_id}}" class="btn main-btn text-nowrap">View Course</a>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+<div class="col-12 col-lg-6 pb-30">
+<div class="profile-content-item text-center">
+<div class="profile-content-image">
+<img style="width: 100%; height: 100%;" src="{% static 'client_assets/images/' %}{{expert.expert_image}}" alt="profile">
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<section class="become-section pb-100">
+<div class="container">
+<div class="bg-main become-section-box">
+<div class="become-section-shapes">
+<div class="become-section-shape-item">
+<img src="{% static 'client_assets/images/shapes/become-section-curve-line.png' %}" alt="shape">
+</div>
+</div>
+<div class="become-animate-items">
+ <div class="become-animate-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/animate-shape-2.png' %}" alt="shape">
+</div>
+</div>
+<div class="row">
+<div class="col-12 col-lg-5 pb-50 mobile-pb-30">
+<div class="section-title section-title-white section-title-left">
+<h2>Join As Teacher Or Student</h2>
+<p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut henderit in magnam aliquam quaerat voluptatem</p>
+</div>
+<div class="section-button-group">
+<div class="section-button-item">
+<a href="/client/client_ins_login/" class="btn main-btn btn-white">BECOME A INSTRUCTOR  <i class="flaticon-edit"></i></a>
+</div>
+<div class="section-button-item">
+<a href="/client/client_login/" class="btn main-btn btn-white">BECOME A STUDENT <i class="flaticon-edit"></i></a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 offset-lg-1 position-relative">
+<div class="image-position image-position-rb text-center">
+<img src="{% static 'client_assets/images/header-screenshot.png' %}" alt="screenshot">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{% endblock %}

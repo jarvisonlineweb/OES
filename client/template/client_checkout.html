@@ -1,0 +1,153 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-18.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Checkout</h1>
+<nav aria-label="breadcrumb">
+
+</nav>
+</div>
+</div>
+</header>
+
+<form method="POST" action="/client/client_booking/{{total}}">
+    {% csrf_token %}
+<div class="checkout-section pt-100 pb-70">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-7 pb-30">
+<div class="checkout-item desk-pad-right-30">
+<div class="sub-section-title">
+<h3 class="sub-section-title-heading">Billing Details</h3>
+</div>
+<div class="checkout-form">
+
+<div class="row">
+<div class="col-sm-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-envelope"></i></span>
+</div>
+<input type="text" name="email" class="form-control" required placeholder="Email Address*" value="{{user.student_email}}">
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-phone-call"></i></span>
+</div>
+<input type="text" name="phone" class="form-control" required placeholder="Phone Number*" value="{{user.student_contact}}">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-lg-6">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+<input type="text" name="name" class="form-control" required placeholder="First Name*" value="{{user.student_name}}">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-lg-6">
+</div>
+<div class="col-sm-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<input type="text" name="name" class="form-control" required placeholder="Country" value="India">
+
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+
+</div>
+<input type="text" name="state" class="form-control" required placeholder="First Name*" value="Gujrat">
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-5 pb-30">
+<div class="checkout-item">
+<div class="sub-section-title">
+<h3 class="sub-section-title-heading">All Courses</h3>
+</div>
+<div class="checkout-details mb-30">
+<div class="cart-total-box">
+<div class="cart-total-item">
+<h4 class="checkout-total-title">Course Name</h4>
+<p class="checkout-total-title">Fees</p>
+</div>
+ {% for c in course %}
+<div class="cart-total-item">
+<h4>{{c.course_id.course_name}}</h4>
+<p>{{c.course_id.course_fees}}  &nbsp; Rs</p>
+</div>
+ {% endfor %}
+
+<div class="cart-total-item">
+<h4 class="checkout-total-title">Total</h4>
+<p class="checkout-total-title">{{total}}  &nbsp; Rs</p>
+</div>
+</div>
+</div>
+<button class="btn main-btn full-width" type="submit">
+BOOK YOUR COURSES
+</button>
+<!--<div class="checkout-payment-area">-->
+<!--<div class="sub-section-title">-->
+<!--<h3 class="sub-section-title-heading">What's Payment Method</h3>-->
+<!--</div>-->
+<!--<div class="checkout-payment-form">-->
+<!--<div class="input-checkbox mb-20">-->
+<!--<input type="checkbox" id="check3">-->
+<!--<label for="check3">Bank Transfer</label>-->
+<!--</div>-->
+<!--<div class="input-checkbox mb-20">-->
+<!--<input type="checkbox" id="check4">-->
+<!--<label for="check4">Paypal</label>-->
+<!--</div>-->
+<!--<div class="input-checkbox mb-20">-->
+<!--<input type="checkbox" id="check5">-->
+<!--<label for="check5">Visa</label>-->
+<!--</div>-->
+<!--<p>What ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore </p>-->
+<!--<div class="col-12">-->
+<!-- <a href="/client/client_payment/">-->
+<!--<button class="btn main-btn full-width" type="submit">-->
+<!--MAKE PAYMENT-->
+<!--</button>-->
+<!--  </a>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</div>-->
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+{% endblock %}

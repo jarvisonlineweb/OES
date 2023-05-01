@@ -1,0 +1,154 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-bottom">
+<img src="{% static 'client_assets/images/shapes/shape-17.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Edit Account</h1>
+<nav aria-label="breadcrumb">
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="event-details-section pt-100 pb-100">
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-4 pb-30 order-lg-2">
+<div class="summery-details-item">
+<div class="summery-box">
+
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-18 pb-30 order-lg-18">
+<div class="summery-details-item desk-pad-right-30">
+ <div class="summery-info-details">
+<div class="account-info">
+<form method="POST" action="/client/client_updateprofile/"
+            data-parsley-validate="">
+     {% csrf_token %}
+
+<div class="account-setting-item">
+<div class="row">
+<div class="col-sm-12 col-md-6 col-lg-6">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+<input type="text" name="student_name" value="{{students.student_name}}" class="form-control"  placeholder="UserName*"
+                ata-parsley-required="true" data-parsley-required-message="Please Enter Name">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-md-6 col-lg-6">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-user"></i></span>
+</div>
+<input type="password" name="student_password" value="{{students.student_password}}" class="form-control" required placeholder="Password*"
+            ata-parsley-required="true" data-parsley-required-message="Please Enter Password">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-envelope"></i></span>
+</div>
+<input type="email" name="student_email" value="{{students.student_email}}" class="form-control" required placeholder="Email*"
+        ata-parsley-required="true" data-parsley-required-message="Please Enter Email ">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="form-group mb-20">
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class="flaticon-phone-call"></i></span>
+</div>
+<input type="text" name="student_contact" value="{{students.student_contact}}"  class="form-control" required placeholder="Contact*"
+            ata-parsley-required="true" data-parsley-required-message="Please Enter Contact">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="account-setting-item account-setting-button">
+<button class="btn main-btn btn-small">SAVE CHANGES</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+<div class="scroll-top" id="scrolltop">
+<div class="scroll-top-inner">
+<span><i class="flaticon-up-arrow"></i></span>
+</div>
+</div>
+
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'client_assets/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'client_assets/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/swiper-bundle.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'client_assets/js/jquery.counterup.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/moment.js' %}"></script>
+<script src="{% static 'client_assets/js/main.min.js' %}"></script>
+<script src="{% static 'client_assets/js/jquery-ui.js' %}"></script>
+
+<script src="{% static 'client_assets/js/isotope.pkgd.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'client_assets/js/jquery.themepunch.tools.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'client_assets/js/extensions/revolution.extension.video.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/form-validator.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/contact-form-script.js' %}"></script>
+
+<script src="{% static 'client_assets/js/jquery.meanmenu.min.js' %}"></script>
+
+<script src="{% static 'client_assets/js/script.js' %}"></script>
+</body>
+
+<!-- Mirrored from templates.hibootstrap.com/jexi/default/edit-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Feb 2021 02:53:21 GMT -->
+</html>
+{% endblock %}

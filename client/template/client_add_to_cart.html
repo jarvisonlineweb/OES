@@ -1,0 +1,150 @@
+
+{% extends 'client_header_footer.html' %}
+{% load static %}
+{% block content %}
+
+
+<header class="header-page">
+<div class="header-page-shape header-page-shape-middle">
+<img src="{% static 'client_assets/images/shapes/shape-18.png' %}" alt="shape">
+</div>
+<div class="container">
+<div class="header-page-content">
+<h1>Contact Us</h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+</ol>
+</nav>
+</div>
+</div>
+</header>
+
+
+<section class="contact-form-section p-tb-100">
+<div class="container">
+<form class="contact-form" id="contactForm" method="post" action="/client/client_insertbooking/" data-parsley-validate="" >
+
+ {% csrf_token %}
+
+       <div class="contact-form-box">
+          <div class="sub-section-title text-center">
+           <h3 class="sub-section-title-heading">Leave A Message</h3>
+           <p>Your email address will not be published. Required fields are marked *</p>
+           </div>
+
+
+         <div class="col-12 col-md-12 col-lg-12">
+           <div class="form-group mb-20">
+             <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="flaticon-envelope"></i></span>
+                </div>
+                <input type="hidden" name="course_id" value="{{course.course_id}}"/>
+                <textarea name="booking_description" class="form-control" id="message" rows="6" placeholder="Your Comment*"
+                        data-parsley-required="true" data-parsley-required-message="Please Enter Booking Description" style="color:red;"></textarea>
+             </div>
+           </div>
+         </div>
+           <div class="col-sm-12 col-md-12 col-lg-12">
+                <input type="submit"/>
+           </div>
+       </div>
+</form>
+</div>
+</section>
+
+
+<section class="contact-information-section pb-70">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-lg-5 pb-30">
+<div class="contact-information-item">
+<div class="section-title section-title-shapeless section-title-left text-start">
+<h2>For More Information Get In <span>Touch With Jexi</span></h2>
+</div>
+<div class="contact-options">
+<div class="contact-option-item">
+<div class="contact-option-icon"><i class="flaticon-phone-call"></i></div>
+<div class="contact-option-details">
+<p>Mobile: <a href="tel:001-800-388-80-90">800 388 80 90</a></p>
+<p>Hotline: <a href="tel:001-1800-1102">1800 1102</a></p>
+<p>Email: <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#eb838e878784ab818e9382c5888486"><span class="__cf_email__" data-cfemail="9cf4f9f0f0f3dcf6f9e4f5b2fff3f1">[email&#160;protected]</span></a></p>
+</div>
+</div>
+<div class="contact-option-item">
+<div class="contact-option-icon"><i class="flaticon-network"></i></div>
+<div class="contact-option-details">
+<p>The Queen's Walk, PO Box 567 Hostin st. 433, Los Angeles California, US.</p>
+</div>
+</div>
+<div class="contact-option-item">
+<div class="contact-option-icon"><i class="flaticon-clock"></i></div>
+<div class="contact-option-details">
+<p>Monday - Friday: <span>09:00 am - 5:00 pm</span></p>
+<p>Sunday & Saturday: <span>10:30 am - 1:00 pm</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 pb-30">
+<div class="contact-information-item">
+<div class="contact-information-image">
+<img src="{% static 'client_assets/images/profile-image.jpg' %}" alt="contact">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div class="map-section">
+<div class="map-iframe">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509916.957423575!2d-123.79759793610344!3d37.18430344877116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb9fe5f285e3d%3A0x8b5109a227086f55!2sCalifornia%2C%20USA!5e0!3m2!1sen!2sbd!4v1607552912782!5m2!1sen!2sbd"></iframe>
+</div>
+</div>
+
+
+<section class="become-section section-minus-margin-top pb-100">
+<div class="container">
+<div class="bg-main become-section-box">
+<div class="become-section-shapes">
+<div class="become-section-shape-item">
+<img src="{% static 'client_assets/images/shapes/become-section-curve-line.png' %}" alt="shape">
+</div>
+</div>
+<div class="become-animate-items">
+<div class="become-animate-item animation-tab-none">
+<img src="{% static 'client_assets/images/shapes/animate-shape-2.png' %}" alt="shape">
+</div>
+</div>
+<div class="row">
+<div class="col-12 col-lg-5 pb-50 mobile-pb-30">
+<div class="section-title section-title-white section-title-left">
+<h2>Join As Teacher Or Student</h2>
+<p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut henderit in magnam aliquam quaerat voluptatem</p>
+</div>
+<div class="section-button-group">
+<div class="section-button-item">
+<a href="become-a-teacher.html" class="btn main-btn btn-white">BECOME A TEACHER <i class="flaticon-edit"></i></a>
+</div>
+<div class="section-button-item">
+<a href="become-a-teacher.html" class="btn main-btn btn-white">BECOME A STUDENT <i class="flaticon-edit"></i></a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 offset-lg-1 position-relative">
+<div class="image-position image-position-rb text-center">
+<img src="{% static 'client_assets/images/header-screenshot.png' %}" alt="screenshot">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+{% endblock %}
